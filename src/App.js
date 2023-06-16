@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import PembayaranList from "./components/PembayaranList";
+import TambahPembayaran from "./components/TambahPembayaran";
+import EditPembayaran from "./components/EditPembayaran";
+import DaftarPembayaran from "./components/DaftarPembayaran";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<PembayaranList/>}/>
+      <Route path="add"element={<TambahPembayaran/>}/>
+      <Route path="list"element={<DaftarPembayaran/>}/>
+      <Route path="edit/:id" element={<EditPembayaran/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
